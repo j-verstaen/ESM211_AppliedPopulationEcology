@@ -1,0 +1,41 @@
+---
+title: "Week1_lab"
+author: "Juliette Verstaen"
+date: "January 9, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library(devtools)
+devtools::install_github("BruceKendall/PVA")
+devtools::install_github("BruceKendall/mpmtools")
+
+```
+
+```{r}
+library(mpmtools)
+
+# Look at the sea turtle datasets
+loggerhead
+?loggerhead
+
+# Recreate the Crowder et al matrix
+make_stage4age_matrix(loggerhead[[2]], approx_method = "AAS")
+
+make_stage4age_matrix(loggerhead[[2]], approx_method = "AAS", model="pre")
+
+# Explore other options
+##can cahnge the approx methods ex: SAS(stable), FAS(flat), or a giant leslie matrix which is the default
+
+#smaller you make tolerance the less time it takes to get there? unsure
+
+# If you know the maturation rates (g or gamma), can use make_Lefkovitch_matrix
+
+# For an age-structured model, can use make_Leslie_matrix
+```
+
